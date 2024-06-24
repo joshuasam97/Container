@@ -28,30 +28,19 @@ namespace TestProject1.Test
 
             Loginpage loginpage = new Loginpage(getDriver());
             loginpage.ValidLogin("Admin", "admin123");
-            Searchusertc searchuser = new Searchusertc(getDriver());
-            searchuser.ValidSearch("Admin");
-            searchuser.waitforfilterresult();
+            UserManagementPage us = new UserManagementPage(getDriver());
+            us.userNameSearch("Admin");
+            bool filterresults = us.filterresults.Displayed;
+            TestContext.WriteLine("Admin " + filterresults);
+            Assert.That(filterresults, Is.True, "Admin");
+
+
 
             //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("(//span[@class= 'oxd-text oxd-text--span'])[1]")));
 
 
-            try
-            {
 
-                IWebElement norecordsfound = driver.FindElement(By.XPath("//span[contains(text(), 'No Records Found"));
-                Assert.IsNotNull(norecordsfound, "No Data found 'Admin'.");
-                Console.WriteLine("nomatching");
-
-            }
-            catch (NoSuchElementException)
-            {
-
-                IList<WebElement> rows = (IList<WebElement>)driver.FindElements(By.XPath("(//span[@class= 'oxd-text oxd-text--span'])[1]"));
-                Assert.IsTrue(rows.Count > 0, "Data found");
-                Console.WriteLine("matching");
-
-            }
 
 
 

@@ -15,7 +15,7 @@ namespace TestProject1.Test
     public class Edituser : Base
     {
         IWebDriver driver;
-        
+
 
         [Test]
 
@@ -23,22 +23,12 @@ namespace TestProject1.Test
         {
             Loginpage loginpage = new Loginpage(getDriver());
             loginpage.ValidLogin("Admin", "admin123");
-            Searchusertc searchuser = new Searchusertc(getDriver());
-            searchuser.ValidSearch("Admin");
-            // driver.FindElement(By.CssSelector(".oxd-icon.bi-pencil-fill")).Click();
-            EditUsertc editbutton = new EditUsertc(getDriver());
-            editbutton.EditButton();
-            EditUsertc statusclick = new EditUsertc(getDriver());
-            statusclick.Statusdropdownclick();
-            IList<IWebElement> statusitems = driver.FindElements(By.XPath("//div[@role='listbox']"));
-
-            foreach (IWebElement item in statusitems)
-            {
-                if (item.Text.Contains("Disabled"))
-
-                    item.Click();
-
-            }
+            HomePage hm = new HomePage(getDriver());
+            hm.getAdminTab().Click();
+            UserManagementPage us = new UserManagementPage(getDriver());
+            us.userNameSearch("Admin");
+            us.getEdituser().Click();
+            us.getStatusdropdown().Click();
 
 
 
@@ -49,9 +39,41 @@ namespace TestProject1.Test
 
 
 
+
+
+
+
+            //    Searchusertc searchuser = new Searchusertc(getDriver());
+            //    searchuser.ValidSearch("Admin");
+            //    driver.FindElement(By.CssSelector(".oxd-icon.bi-pencil-fill")).Click();
+            //    UserManagementPage editbutton = new UserManagementPage(getDriver());
+            //    editbutton.EditButton();
+            //    UserManagementPage statusclick = new UserManagementPage(getDriver());
+            //    statusclick.Statusdropdownclick();
+            //    IList<IWebElement> statusitems = driver.FindElements(By.XPath("//div[@role='listbox']"));
+
+            //    foreach (IWebElement item in statusitems)
+            //    {
+            //        if (item.Text.Contains("Disabled"))
+
+            //            item.Click();
+
+            //    }
+
+
+
+            //}
         }
-
     }
 }
+
+
+
+
+
+
+
+
+
 
 

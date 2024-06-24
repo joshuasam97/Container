@@ -16,8 +16,9 @@ namespace TestProject1.Test
     { 
 
      [Test]
+     
 
-    public void Login()
+        public void Login()
     {
           Loginpage loginpage = new Loginpage(getDriver());
             loginpage.ValidLogin("Admin", "admin123");
@@ -32,5 +33,7 @@ namespace TestProject1.Test
 
         }
 
-}
+        
+
+    }
 }
