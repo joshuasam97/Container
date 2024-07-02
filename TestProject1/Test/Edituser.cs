@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,11 +27,20 @@ namespace TestProject1.Test
             HomePage hm = new HomePage(getDriver());
             hm.getAdminTab().Click();
             UserManagementPage us = new UserManagementPage(getDriver());
-            us.userNameSearch("Admin");
+            us.userNameSearch("Admin1");
             us.getEdituser().Click();
-            us.getStatusdropdown().Click();
+            // us.getStatusdropdown().Click();
+        }
+            
+            public void Statusdropdown()
 
 
+            {
+            IWebElement changestatus=  driver.FindElement(By.XPath("(//div[@class='oxd-select-text oxd-select-text--active'])[2]"));
+
+            SelectElement s = new SelectElement(changestatus);
+                s.SelectByText("Disabled");
+            }
 
 
 
@@ -65,7 +75,8 @@ namespace TestProject1.Test
             //}
         }
     }
-}
+
+
 
 
 

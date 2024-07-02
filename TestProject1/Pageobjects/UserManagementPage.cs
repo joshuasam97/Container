@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using SeleniumExtras.PageObjects;
 using NUnit.Framework;
 using SeleniumExtras.WaitHelpers;
+using AventStack.ExtentReports;
 
 namespace TestProject1.Pageobjects
 {
@@ -32,8 +33,13 @@ namespace TestProject1.Pageobjects
         private IWebElement searchButton;
         [FindsBy(How = How.XPath, Using = "(//div[text() = 'Admin'])[1]")]
         public IWebElement filterresults;
-          IWebElement edituser;
-        [FindsBy(How = How.XPath, Using = "(//div[@class='oxd-select-text-input'])[2]")]
+        [FindsBy(How = How.XPath, Using = "//i[@class='oxd-icon bi-pencil-fill']")]
+        IWebElement edituser;
+        //[FindsBy(How = How.XPath, Using = "(//div[@class='oxd-select-text-input'])[2]")]
+
+
+        [FindsBy(How = How.XPath, Using = "(//div[@class='oxd-select-text oxd-select-text--active'])[2]")]
+
         private IWebElement changestatus;
         //[FindsBy(How = How.XPath, Using = "//div[text()='Disabled']")]
         //private IWebElement disabled;
@@ -52,15 +58,45 @@ namespace TestProject1.Pageobjects
         {
             return edituser;
         }
-        public IWebElement getStatusdropdown()
-        {
-            wait.Until(ExpectedConditions.ElementToBeClickable(changestatus));
-            return changestatus;
+
+
+
+
+        //public void Statusdropdown()
+        //{
+        //    SelectElement s = new SelectElement(changestatus);
+        //    s.SelectByText("Disabled");
+        //}
+
+        //public IWebElement getStatusdropdown()
+        //{
+        //    wait.Until(ExpectedConditions.ElementToBeClickable(changestatus));
+        //    return changestatus;
+
+        //}
 
 
 
 
 
+        //}
+
+        //public void Statusdropdown(string option)
+        //{
+        //    Status.Click();
+
+        //    IList<IWebElement> lists = driver.FindElements(By.XPath("//div[@role='listbox']"));
+        //    foreach (IWebElement list in lists)
+        //    {
+        //        if (list.Text.Contains(option))
+        //        {
+        //            list.Click();
+        //            // Status.SendKeys(Keys.Escape);
+        //            break;
+        //        }
+        //    }
+
+
+            //}
         }
-    }
 }

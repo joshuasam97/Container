@@ -29,9 +29,9 @@ namespace TestProject1.Test
             hm.selectFirstSuggestion();
             hm.Statusdropdown("Enabled");
             hm.userPassSave("josh1997", "Joshua@1910", "Joshua@1910");
-            //bool uservalidate = hm.validateUser.Displayed;
-            //TestContext.WriteLine("josh1997" + uservalidate);
-            //Assert.AreEqual(true, uservalidate);
+            bool uservalidate = hm.validateUser.Displayed;
+            TestContext.WriteLine("josh1997" + uservalidate);
+            Assert.AreEqual(true, uservalidate);
 
         }
     }

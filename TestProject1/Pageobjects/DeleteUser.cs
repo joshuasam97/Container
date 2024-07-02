@@ -23,12 +23,21 @@ namespace TestProject1.Pageobjects
         private IWebElement userSearch;
         [FindsBy(How = How.XPath, Using = "//button[@type='submit']")]
         private IWebElement searchButton;
-        [FindsBy(How = How.XPath, Using = "(//span[@class='oxd-checkbox-input oxd-checkbox-input--active --label-right oxd-checkbox-input'])[2]")]
+        [FindsBy(How = How.XPath, Using = "(//i[@class='oxd-icon bi-check oxd-checkbox-input-icon'])[2]")]
         private IWebElement checkbox;
-        [FindsBy(How = How.XPath, Using = "(//button[@type='button'])[7]")]
+       // (//span[@class=\"oxd-checkbox-input oxd-checkbox-input--active --label-right oxd-checkbox-input\"])[2]
+        //[FindsBy(How = How.XPath, Using = "(//div[@class='oxd-table-cell oxd-padding-cell'])[8]")]
+        //private IWebElement deleteUser;
+        // [FindsBy(How = How.XPath, Using = "(//button[@type='button'])[7]")]
+        [FindsBy(How = How.XPath, Using = "(//div[contains(@class,'cell-actions')]/button[@type='button'])[3]")]
         private IWebElement deleteUser;
-        [FindsBy(How = How.XPath, Using = "(//button[@type='button'])[10]")]
+      
+
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'footer')]/button/i[contains(@class,'trash')]")]
         private IWebElement confirmdeleteUser;
+        [FindsBy(How = How.XPath, Using = "//div[text()='']")]
+        public IWebElement validateUser;
+
 
 
         public void UserDelete(string username)
