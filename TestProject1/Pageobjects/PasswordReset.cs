@@ -16,6 +16,7 @@ namespace TestProject1.Pageobjects
             this.driver = driver;
             PageFactory.InitElements(driver, this);
         }
+
         [FindsBy(How = How.XPath, Using = "(//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name'])[1]")]
         private IWebElement admintab;
         [FindsBy(How = How.XPath, Using = "(//input[@class='oxd-input oxd-input--active'])[2]")]
@@ -32,18 +33,26 @@ namespace TestProject1.Pageobjects
         private IWebElement cnfpasswordtab;
         [FindsBy(How = How.XPath, Using = "//button[@type='submit']")]
         private IWebElement savebutton;
+        [FindsBy(How = How.XPath, Using = "//p[@class='oxd-userdropdown-name']")]
+        private IWebElement logoutdrop;
+        [FindsBy(How = How.XPath, Using = "//a[@href='/web/index.php/auth/logout']")]
+        private IWebElement logout;
 
 
-        public void passwordReset(string username, string newpassword, string cnfnewpassword)
+
+
+        public void passwordReset(string passchangeuser, string newpassword, string cnfnewpassword)
         {
             admintab.Click();
-            userSearch.SendKeys(username);
+            userSearch.SendKeys(passchangeuser);
             searchButton.Click();
             editicon.Click();
             passwordCheckbox.Click();
             passwordtab.SendKeys(newpassword);
             cnfpasswordtab.SendKeys(cnfnewpassword);
             savebutton.Click();
+            logoutdrop.Click();
+            logout.Click();
         }
 
     }

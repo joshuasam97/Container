@@ -18,7 +18,10 @@ namespace TestProject1.Test
             Loginpage loginpage = new Loginpage(getDriver());
             loginpage.ValidLogin("Admin", "admin123");
             PasswordReset pr = new PasswordReset(getDriver());
-            pr.passwordReset("FMLName1", "LKJname@8979123", "LKJname@8979123");
+            pr.passwordReset("josh1997", "LKJname@8979143", "LKJname@8979143");
+            loginpage.ValidLogin("josh1997", "LKJname@8979143");
+
         }
+
     }
 }

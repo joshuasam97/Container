@@ -17,7 +17,7 @@ namespace TestProject1.Test
             Loginpage loginpage = new Loginpage(getDriver());
             loginpage.ValidLogin("Admin", "admin123");
             DeleteUser dl = new DeleteUser(getDriver());
-            dl.UserDelete("FMLNames");
+            dl.UserDelete("Avi123", "Avi123");
         }
     }
 }

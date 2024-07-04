@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -29,18 +30,27 @@ namespace TestProject1.Pageobjects
         //[FindsBy(How = How.XPath, Using = "(//div[@class='oxd-table-cell oxd-padding-cell'])[8]")]
         //private IWebElement deleteUser;
         // [FindsBy(How = How.XPath, Using = "(//button[@type='button'])[7]")]
-        [FindsBy(How = How.XPath, Using = "(//div[contains(@class,'cell-actions')]/button[@type='button'])[3]")]
+        [FindsBy(How = How.XPath, Using = "(//div[contains(@class,'cell-actions')]/button[@type='button'])[1]")]
         private IWebElement deleteUser;
       
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'footer')]/button/i[contains(@class,'trash')]")]
         private IWebElement confirmdeleteUser;
-        [FindsBy(How = How.XPath, Using = "//div[text()='']")]
-        public IWebElement validateUser;
+
+        [FindsBy(How = How.XPath, Using = "(//input[@class='oxd-input oxd-input--active'])[2]")]
+        private IWebElement clearSearch;
+
+        [FindsBy(How = How.XPath, Using = "(//input[@class='oxd-input oxd-input--active'])[2]")]
+        private IWebElement deletedusernameSearch;
+
+        [FindsBy(How = How.XPath, Using = "//button[@type='submit']")]
+        private IWebElement searchButtonagain;
 
 
 
-        public void UserDelete(string username)
+
+
+        public void UserDelete(string username , string deletename)
         {
             admintab.Click();
             userSearch.SendKeys(username);
@@ -48,6 +58,10 @@ namespace TestProject1.Pageobjects
             checkbox.Click();
             deleteUser.Click();
             confirmdeleteUser.Click();
+            clearSearch.Clear();
+            deletedusernameSearch.SendKeys(deletename);
+            searchButtonagain.Click();
+            Assert.IsFalse(driver.PageSource.Contains("deletename"));
         }
 
     }
